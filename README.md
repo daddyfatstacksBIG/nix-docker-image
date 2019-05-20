@@ -40,3 +40,30 @@ docker run --rm -ti \
   makerdao/nix \
   bash
 ```
+
+## Run one command
+
+Set your `seth` environment variables and run:
+
+```sh
+docker run --rm \
+  -v nix-db:/nix --tmpfs /tmp \
+  --env-file <(env | grep ETH_) \
+  makerdao/nix \
+  nix run \
+    -f https://github.com/makerdao/testchain-dss-deployment-scripts/tarball/nixify-poc tdds \
+    -c step-1-deploy
+```
+
+Use a local clone of `tdds`:
+
+```sh
+docker run --rm \
+  -v nix-db:/nix --tmpfs /tmp \
+  -v ~/src/maker/testchain-dss-deployment-scripts:/tdds \
+  --env-file <(env | grep ETH_) \
+  makerdao/nix \
+  nix run \
+    -f /tdds tdds \
+    -c step-1-deploy
+```
