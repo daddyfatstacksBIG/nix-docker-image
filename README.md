@@ -51,7 +51,7 @@ docker run --rm \
   --env-file <(env | grep ETH_) \
   makerdao/nix \
   nix run \
-    -f https://github.com/makerdao/testchain-dss-deployment-scripts/tarball/nixify-poc tdds \
+    -f https://github.com/makerdao/testchain-dss-deployment-scripts/tarball/nixify-poc \
     -c step-1-deploy
 ```
 
@@ -64,6 +64,6 @@ docker run --rm \
   --env-file <(env | grep ETH_) \
   makerdao/nix \
   nix run \
-    -f /tdds tdds \
+    -f /tdds \
     -c step-1-deploy
 ```
